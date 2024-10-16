@@ -1,10 +1,9 @@
 const container = document.querySelector('.container');
 const resetButton = document.getElementById('resetButton');
 
-// Função para criar o grid com base no tamanho informado
 function createGrid(size) {
-  container.innerHTML = ''; // Limpar o grid existente
-  const squareSize = 960 / size; // Tamanho de cada quadrado
+  container.innerHTML = ''; 
+  const squareSize = 960 / size; 
 
   for (let i = 0; i < size * size; i++) {
     const square = document.createElement('div');
@@ -12,8 +11,7 @@ function createGrid(size) {
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
     square.style.opacity = 0;
-
-    // Alterar cor e escurecer progressivamente ao passar o mouse
+   
     square.addEventListener('mouseover', () => {
       let currentOpacity = parseFloat(square.style.opacity);
       if (currentOpacity < 1) {
@@ -26,7 +24,6 @@ function createGrid(size) {
   }
 }
 
-// Função para gerar uma cor aleatória
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
@@ -34,7 +31,6 @@ function getRandomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Resetar o grid com novo tamanho
 resetButton.addEventListener('click', () => {
   let size = parseInt(prompt('Enter grid size (max 100):', 16));
   if (size > 0 && size <= 100) {
@@ -44,5 +40,4 @@ resetButton.addEventListener('click', () => {
   }
 });
 
-// Criar grid inicial
 createGrid(16);
